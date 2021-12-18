@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+//This page is a template for the markdown file that is created by answering the questions from the command line
 function generateMarkdown(data) {
   return `# ${data.title}
   ![GitHub license](http://img.shields.io/badge/license-${data.license}-blue.svg)
@@ -24,7 +23,7 @@ function generateMarkdown(data) {
   ## Tests
   ${data.tests}
   ## Questions
-  Made with love by ${data.user}. If you have any questions, feel free to reach out to me at ${data.email}. Don't forget to checkout my GitHub profile/projects at https://github.com/${data.github}.
+  Created by ${data.user}. If you have any questions, feel free to reach out to me at ${data.email}. Don't forget to checkout my GitHub profile/projects at https://github.com/${data.github}.
 `;
 }
 
