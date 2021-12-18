@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const generatePage = require('./utils/generateMarkdown.js');
 const fs = require('fs');
+const { createDecipheriv } = require('crypto');
 // TODO: Create an array of questions for user input
 const promptUser = () => {
     return inquirer.prompt([
@@ -155,7 +156,17 @@ const promptUser = () => {
     ]);
   };
 // TODO: Create a function to write README file 
-function writeToFile(fileName, data) {}
+const writeFile = data => {
+    //file location goes here
+    fs.writeFile('./dist/README.md', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log('Your README file has been created. Look in the dist folder.')
+        }
+    })
+}
 
 // TODO: Create a function to initialize app
 function init() {}
