@@ -1,24 +1,159 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const generatePage = require('./utils/generateMarkdown');
+const generatePage = require('./utils/generateMarkdown.js');
+const fs = require('fs');
 // TODO: Create an array of questions for user input
-const questions = [
+const promptUser = () => {
+    return inquirer.prompt([
+      {
+        type: 'input',
+        name: 'user',
+        message: 'What is your name? (Required)',
+        validate: userInput => {
+          if (userInput) {
+            return true;
+          } else {
+            console.log('This is a required field');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address? (Required)',
+        validate: emailInput => {
+          if (emailInput) {
+            return true;
+          } else {
+            console.log('This is a required field');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub username? (Required)',
+        validate: githubInput => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log('This is a required field');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'title',
+        message: 'What is your project name? (Required)',
+        validate: projectNameInput => {
+          if (projectNameInput) {
+            return true;
+          } else {
+            console.log('This is a required field');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: 'Please enter a description for your project (Required)',
+        validate: descriptionInput => {
+          if (descriptionInput) {
+            return true;
+          } else {
+            console.log('This is a required field');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'install',
+        message: 'Please list the steps required to install your project (Required)',
+        validate: instructionsInput => {
+          if (instructionsInput) {
+            return true;
+          } else {
+            console.log('This is a required field');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'usage',
+        message: 'Provide instructions and examples for use of your application (Required)',
+        validate: instructionsInput => {
+          if (instructionsInput) {
+            return true;
+          } else {
+            console.log('This is a required field');
+            return false;
+          }
+        }
+      },
+      {
+        type: 'checkbox',
+        message: 'Select the appropriate license for your application (Required)',
+        name: 'license',
+        choices: [
+          new inquirer.Separator(' = License Choices = '),
+          {
+            name: 'GNU',
+          },
+          {
+            name: 'Mozilla',
+          },
+          {
+            name: 'Apache',
+          },
+          {
+            name: 'MIT',
+          },
+          {
+            name: 'Boost',
+          },
+          {
+            name: 'Unlicense',
+          }
+        ],
+        validate(answer) {
+          if (answer.length < 1) {
+            return 'This is a required field.';
+          }
+          else if (answer.length > 1) {
+            return 'You can only select one license.';
+          }
+  
+          return true;
+        },
+    },
     {
         type: 'input',
-        name: 'project name',
-        message: 'What is your project name?',
-        validate: nameInput => {
-            if (nameInput) {
-                return true;
-            }   else {
-                console.log('Please enter your project name!');
-                return false;
-            }
+        name: 'contributing',
+        message: 'If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so.',
+        validate: contributingInput => {
+          if (contributingInput) {
+            return true;
+          }
         }
     },
-    //ADD MORE MORE MORE MORE MORE MORE MORE MORE MORE
-];
-
+    {
+        type: 'input',
+        name: 'tests',
+        message: "If you've created test cases for your application please provide examples on how to run them.",
+        validate: testsInput => {
+          if (testsInput) {
+            return true;
+          }
+        }
+    }
+    ]);
+  };
 // TODO: Create a function to write README file 
 function writeToFile(fileName, data) {}
 
