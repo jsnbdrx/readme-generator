@@ -169,7 +169,16 @@ const writeFile = data => {
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    //first needs to ask questions, then take answers to generate md file
+    promptUser()
+    .then (data => {
+        return writeFile(data);
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
 
 // Function call to initialize app
 init();
