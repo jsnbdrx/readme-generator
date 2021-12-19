@@ -4,6 +4,11 @@
 
 ## Description
 README Generator is a Node.js application that asks the user a series of questions via terminal/command line. The user input is then used to create a markdown file (README.md) that the user can then use for their own projects.
+### Technologies used in this application include:
+* Node.js
+* JavaScript
+* Markdown
+* 
 
 ## Table of Contents
 * [Installation](#installation)
@@ -21,7 +26,7 @@ Steps to Install Application
 * On command line, run "node index (or index.js, both work)"
 * A series of questions will then run on the command line. Answer each question as they come up.
 * After all questions are answered, a README.md file is created in the "dist" folder
-* You now have a professional quality README.md for you own use to add to your own project!
+* You now have a professional quality README.md for your own use to add to your own project!
 
 ## Usage
 Using this README.md application will help make the process of creating a README file faster, easier, and more efficient. 
