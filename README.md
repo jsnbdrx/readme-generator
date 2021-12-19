@@ -44,3 +44,7 @@ Feel free to contact me with any questions.
 
 
 [How to create a Professional README](./readme-guide.md)
+
+## Walkthrough Video
+
+https://watch.screencastify.com/v/8YUZzoEsKFALpHVCQFgz
