@@ -8,7 +8,7 @@ README Generator is a Node.js application that asks the user a series of questio
 * Node.js
 * JavaScript
 * Markdown
-* 
+* Inquirer.js
 
 ## Table of Contents
 * [Installation](#installation)
